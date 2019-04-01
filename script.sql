@@ -41,16 +41,6 @@ CREATE TABLE coopetico (
     CONSTRAINT fk_coopetico_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE taxista (
-	pk_correo_usuario	VARCHAR(64)				PRIMARY KEY,
-    faltas				ENUM('1','2','3','0')	NOT NULL,
-    estado				BIT						NOT NULL,
-    hoja_delincuencia	BIT						NOT NULL,
-    estrellas			INT	 					NOT NULL,
-    
-    CONSTRAINT fk_taxista_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo)
-);
-
 CREATE TABLE cliente ( 
 	pk_correo_usuario	VARCHAR(64)		PRIMARY KEY,
     
@@ -68,15 +58,18 @@ CREATE TABLE taxi (
     fecha_ven_seguro	TIMESTAMP				NOT NULL
 );
 
-CREATE TABLE autentica (
-	pk_correo_taxista	VARCHAR(64),
-    pk_placa_taxi		VARCHAR(8),
-    pk_fecha_inicio		TIMESTAMP 			NOT NULL,
-    fecha_fin			TIMESTAMP			NOT NULL,
+CREATE TABLE taxista (
+	pk_correo_usuario	VARCHAR(64)				PRIMARY KEY,
+    faltas				ENUM('1','2','3','0')	NOT NULL,
+    estado				BIT						NOT NULL,
+    hoja_delincuencia	BIT						NOT NULL,
+    estrellas			INT	 					NOT NULL,
+    placa_taxi_maneja	VARCHAR(8)				NOT NULL,
+    placa_taxi_dueno	VARCHAR(8)				NULL,
     
-    CONSTRAINT fk_autoriza_a_taxista FOREIGN KEY (pk_correo_taxista) REFERENCES taxista (pk_correo_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_autoriza_a_taxi FOREIGN KEY (pk_placa_taxi) REFERENCES taxi (pk_placa) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT pk_autorizado_a PRIMARY KEY (pk_correo_taxista,pk_placa_taxi,pk_fecha_inicio)
+    CONSTRAINT fk_taxista_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT fk_taxista_taxi_maneja FOREIGN KEY (placa_taxi_maneja) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT fk_taxista_taxi_dueno FOREIGN KEY (placa_taxi_dueno) REFERENCES taxi (pk_placa) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE viaje (
@@ -87,8 +80,10 @@ CREATE TABLE viaje (
     costo				VARCHAR(8)			NOT NULL,
     estrellas			INT					NULL,
     origen_destino		VARCHAR(64)			NOT NULL,
+    correo_taxi			VARCHAR(8)			NOT NULL,
     
     CONSTRAINT fk_viaje_cliente FOREIGN KEY (pk_correo_cliente) REFERENCES cliente (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT fk_viaje_taxi FOREIGN KEY (pk_placa_taxi) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT fk_viaje_taxista FOREIGN KEY (correo_taxi) REFERENCES taxista (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT pk_viaje PRIMARY KEY (pk_correo_cliente,pk_placa_taxi,pk_fecha_inicio)
 );
