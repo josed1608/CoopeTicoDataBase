@@ -89,6 +89,11 @@ CREATE TABLE viaje (
 );
 
 /**DROP TRIGGER tg_promedio_estrellas_e;**/
+CREATE EVENT tg_limpiar_faltas_t
+    ON SCHEDULE EVERY 24 HOUR
+    DO 
+      UPDATE taxista 
+      SET faltas = '0';
 
 CREATE TRIGGER tg_promedio_estrellas_e 
 AFTER INSERT ON viaje
