@@ -1,8 +1,8 @@
 /**DROP SCHEMA coopetico;**/
 
-CREATE SCHEMA coopetico;
+CREATE SCHEMA `coopetico-dev`;
 
-USE coopetico;
+USE `coopetico-dev`;
 
 CREATE TABLE grupo (
 	pk_id				VARCHAR(32)			PRIMARY KEY
@@ -63,7 +63,7 @@ CREATE TABLE taxista (
     faltas				ENUM('1','2','3','0')	NOT NULL,
     estado				BIT						NOT NULL,
     hoja_delincuencia	BIT						NOT NULL,
-    estrellas			INT	 					NOT NULL,
+    estrellas			ENUM('1','2','3','4','5')NOT NULL,
     placa_taxi_maneja	VARCHAR(8)				NOT NULL,
     placa_taxi_dueno	VARCHAR(8)				NULL,
     
@@ -78,7 +78,7 @@ CREATE TABLE viaje (
     pk_fecha_inicio		TIMESTAMP			NOT NULL,
     fecha_fin			TIMESTAMP			NOT NULL,
     costo				VARCHAR(8)			NOT NULL,
-    estrellas			INT					NULL,
+    estrellas			ENUM('1','2','3','4','5')NULL,
     origen_destino		VARCHAR(64)			NOT NULL,
     correo_taxista		VARCHAR(8)			NOT NULL,
     
