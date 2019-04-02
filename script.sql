@@ -80,10 +80,22 @@ CREATE TABLE viaje (
     costo				VARCHAR(8)			NOT NULL,
     estrellas			INT					NULL,
     origen_destino		VARCHAR(64)			NOT NULL,
-    correo_taxi			VARCHAR(8)			NOT NULL,
+    correo_taxista		VARCHAR(8)			NOT NULL,
     
     CONSTRAINT fk_viaje_cliente FOREIGN KEY (pk_correo_cliente) REFERENCES cliente (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT fk_viaje_taxi FOREIGN KEY (pk_placa_taxi) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE,
-    CONSTRAINT fk_viaje_taxista FOREIGN KEY (correo_taxi) REFERENCES taxista (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT fk_viaje_taxista FOREIGN KEY (correo_taxista) REFERENCES taxista (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT pk_viaje PRIMARY KEY (pk_correo_cliente,pk_placa_taxi,pk_fecha_inicio)
 );
+
+/**DROP TRIGGER tg_promedio_estrellas_e;**/
+
+CREATE TRIGGER tg_promedio_estrellas_e 
+AFTER INSERT ON viaje
+FOR EACH ROW
+		UPDATE taxista t
+		SET t.estrellas = (
+			SELECT AVG(estrellas) FROM viaje v
+			WHERE v.correo_taxista = NEW.correo_taxista
+		)
+		WHERE t.pk_correo_usuario = NEW.correo_taxista
