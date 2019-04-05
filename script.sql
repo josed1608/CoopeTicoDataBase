@@ -1,4 +1,4 @@
-/**DROP SCHEMA coopetico;**/
+DROP SCHEMA `coopetico-dev`;
 
 CREATE SCHEMA `coopetico-dev`;
 
@@ -63,7 +63,7 @@ CREATE TABLE taxista (
     faltas				ENUM('1','2','3','0')	NOT NULL,
     estado				BIT						NOT NULL,
     hoja_delincuencia	BIT						NOT NULL,
-    estrellas			ENUM('1','2','3','4','5')NOT NULL,
+    estrellas			FLOAT NOT NULL,
     placa_taxi_maneja	VARCHAR(8)				NOT NULL,
     placa_taxi_dueno	VARCHAR(8)				NULL,
     
@@ -78,7 +78,7 @@ CREATE TABLE viaje (
     pk_fecha_inicio		TIMESTAMP			NOT NULL,
     fecha_fin			TIMESTAMP			NOT NULL,
     costo				VARCHAR(8)			NOT NULL,
-    estrellas			ENUM('1','2','3','4','5')NULL,
+    estrellas			FLOAT NULL,
     origen_destino		VARCHAR(64)			NOT NULL,
     correo_taxista		VARCHAR(8)			NOT NULL,
     
@@ -95,12 +95,22 @@ CREATE EVENT tg_limpiar_faltas_t
       UPDATE taxista 
       SET faltas = '0';
 
+CREATE TRIGGER tg_rango_estrellas
+BEFORE INSERT ON viaje
+FOR EACH ROW BEGIN
+  IF NEW.estrellas > 5 OR NEW.estrellas < 0 THEN
+    SIGNAL SQLSTATE '45000'
+    SET MESSAGE_TEXT = 'La cantidad de estrellas no está entre 0 y 5';
+  end if;
+END;
+
 CREATE TRIGGER tg_promedio_estrellas_e 
 AFTER INSERT ON viaje
-FOR EACH ROW
+FOR EACH ROW BEGIN
 		UPDATE taxista t
 		SET t.estrellas = (
 			SELECT AVG(estrellas) FROM viaje v
 			WHERE v.correo_taxista = NEW.correo_taxista
 		)
-		WHERE t.pk_correo_usuario = NEW.correo_taxista
+		WHERE t.pk_correo_usuario = NEW.correo_taxista;
+END;
