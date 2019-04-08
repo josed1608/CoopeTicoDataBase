@@ -117,3 +117,15 @@ FOR EACH ROW BEGIN
 		WHERE t.pk_correo_usuario = NEW.correo_taxista;
 END; //
 DELIMITER ;
+
+CREATE TABLE token_recuperacion_contrasena (
+	fk_correo_usuario   VARCHAR(32)			PRIMARY KEY,
+    token				VARCHAR(512),
+    fecha_expiracion    TIMESTAMP,
+    CONSTRAINT fk_token_usuario FOREIGN KEY (fk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE EVENT tr_limpiar_tokens_expirados_t
+    ON SCHEDULE EVERY 12 HOUR
+    DO 
+      DELETE FROM token_recuperacion_contrasena WHERE TIMESTAMPDIFF(MINUTE, NOW(), fecha_expiracion) 
