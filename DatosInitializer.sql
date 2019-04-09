@@ -60,10 +60,10 @@ INSERT INTO permisos_grupo VALUES
 (403, 'Gerente');
 
 INSERT INTO usuario VALUES
-('cliente@cliente.com', 'Cliente', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Cliente', 'salt'),
-('taxista@taxista.com', 'Taxista', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Taxista', 'salt'),
-('administrativo@administrativo.com', 'Administrativo', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Administrativo', 'salt'),
-('gerente@gerente.com', 'Gerente', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Gerente', 'salt');
+('cliente@cliente.com', 'Cliente', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Cliente'),
+('taxista@taxista.com', 'Taxista', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Taxista'),
+('administrativo@administrativo.com', 'Administrativo', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Administrativo'),
+('gerente@gerente.com', 'Gerente', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Gerente');
 
 INSERT INTO taxi VALUES
 ('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now());
