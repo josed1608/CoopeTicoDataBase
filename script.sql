@@ -1,4 +1,4 @@
-DROP SCHEMA `coopetico-dev`;
+/*DROP SCHEMA `coopetico-dev`;*/
 
 CREATE SCHEMA `coopetico-dev`;
 
@@ -87,23 +87,25 @@ CREATE TABLE viaje (
     CONSTRAINT pk_viaje PRIMARY KEY (pk_correo_cliente,pk_placa_taxi,pk_fecha_inicio)
 );
 
-/**DROP TRIGGER tg_promedio_estrellas_e;**/
-CREATE EVENT tg_limpiar_faltas_t
+CREATE EVENT tr_limpiar_faltas_t
     ON SCHEDULE EVERY 24 HOUR
     DO 
       UPDATE taxista 
       SET faltas = '0';
 
-CREATE TRIGGER tg_rango_estrellas
+DELIMITER //
+CREATE TRIGGER tr_rango_estrellas_e
 BEFORE INSERT ON viaje
-FOR EACH ROW BEGIN
-  IF NEW.estrellas > 5 OR NEW.estrellas < 0 THEN
-    SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'La cantidad de estrellas no está entre 0 y 5';
-  end if;
-END;
+FOR EACH ROW
+BEGIN 
+  IF (NEW.`estrellas` > 5 OR NEW.`estrellas` < 0) THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La cantidad de estrellas no está entre 0 y 5';
+  END IF;
+END; //
+DELIMITER ;
 
-CREATE TRIGGER tg_promedio_estrellas_e 
+DELIMITER //
+CREATE TRIGGER tr_promedio_estrellas_e 
 AFTER INSERT ON viaje
 FOR EACH ROW BEGIN
 		UPDATE taxista t
@@ -112,4 +114,5 @@ FOR EACH ROW BEGIN
 			WHERE v.correo_taxista = NEW.correo_taxista
 		)
 		WHERE t.pk_correo_usuario = NEW.correo_taxista;
-END;
+END; //
+DELIMITER ;
