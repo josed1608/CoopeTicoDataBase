@@ -7,6 +7,7 @@ DELETE FROM permisos_grupo;
 DELETE FROM grupo;
 DELETE FROM permiso;
 DELETE FROM viaje;
+DELETE FROM token_recuperacion_contrasena;
 
 INSERT INTO permiso VALUES
  (100, 'Pedir viaje'),
