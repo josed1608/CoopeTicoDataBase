@@ -1,6 +1,6 @@
+DELETE FROM taxista;
 DELETE FROM taxi;
 DELETE FROM cliente;
-DELETE FROM taxista;
 DELETE FROM coopetico;
 DELETE FROM usuario;
 DELETE FROM permisos_grupo;
@@ -60,11 +60,12 @@ INSERT INTO permisos_grupo VALUES
 (402, 'Gerente'),
 (403, 'Gerente');
 
+-- La contraseña es contrasenna para todos
 INSERT INTO usuario VALUES
-('cliente@cliente.com', 'Cliente', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Cliente', 'salt'),
-('taxista@taxista.com', 'Taxista', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Taxista', 'salt'),
-('administrativo@administrativo.com', 'Administrativo', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Administrativo', 'salt'),
-('gerente@gerente.com', 'Gerente', 'apellido', '11111111', 'contrasenna123!', 'foto', 'Gerente', 'salt');
+('cliente@cliente.com', 'Cliente', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente'),
+('taxista@taxista.com', 'Taxista', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista'),
+('administrativo@administrativo.com', 'Administrativo', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Administrativo'),
+('gerente@gerente.com', 'Gerente', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente');
 
 INSERT INTO taxi VALUES
 ('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now());

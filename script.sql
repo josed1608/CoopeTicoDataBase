@@ -30,7 +30,6 @@ CREATE TABLE usuario (
     contrasena			CHAR(128)		NOT NULL,
     foto				VARCHAR(512)	NULL,
     id_grupo			VARCHAR(32)		NOT NULL,
-    salt				CHAR(128)		NOT NULL,
     
     CONSTRAINT fk_usuario_grupo FOREIGN KEY (id_grupo) REFERENCES grupo (pk_id) ON DELETE NO ACTION ON UPDATE CASCADE
 );
