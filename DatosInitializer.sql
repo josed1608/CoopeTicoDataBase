@@ -63,6 +63,7 @@ INSERT INTO permisos_grupo VALUES
 -- La contraseña es contrasenna para todos
 INSERT INTO usuario VALUES
 ('cliente@cliente.com', 'Cliente', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente'),
+('coopeticotaxi@gmail.com', 'Cliente', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente'),
 ('taxista@taxista.com', 'Taxista', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista'),
 ('administrativo@administrativo.com', 'Administrativo', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Administrativo'),
 ('gerente@gerente.com', 'Gerente', 'apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente');
@@ -71,7 +72,8 @@ INSERT INTO taxi VALUES
 ('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now());
 
 INSERT INTO cliente VALUES
-('cliente@cliente.com');
+('cliente@cliente.com'),
+('coopeticotaxi@gmail.com');
 
 INSERT INTO taxista VALUES
 ('taxista@taxista.com', '0', 1, 1, 5, 'AAA111', null);
