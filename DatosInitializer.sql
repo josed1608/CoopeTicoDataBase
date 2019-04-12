@@ -81,3 +81,6 @@ INSERT INTO taxista VALUES
 INSERT INTO coopetico VALUES
 ('administrativo@administrativo.com'),
 ('gerente@gerente.com');
+
+INSERT INTO token_recuperacion_contrasena VALUES ('gerente@gerente.com', '2019-04-04', 'tokenGenerado');
+INSERT INTO token_recuperacion_contrasena VALUES ('cliente@cliente.com', '2019-07-07', 'tokenGenerado2');
