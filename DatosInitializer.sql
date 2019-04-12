@@ -82,5 +82,5 @@ INSERT INTO coopetico VALUES
 ('administrativo@administrativo.com'),
 ('gerente@gerente.com');
 
-INSERT INTO token_recuperacion_contrasena VALUES ('gerente@gerente.com', '2019-04-04', 'tokenGenerado');
-INSERT INTO token_recuperacion_contrasena VALUES ('cliente@cliente.com', '2019-07-07', 'tokenGenerado2');
+INSERT INTO token_recuperacion_contrasena VALUES ('gerente@gerente.com', 'tokenGenerado', '2019-04-04');
+INSERT INTO token_recuperacion_contrasena VALUES ('cliente@cliente.com', 'tokenGenerado2', '2019-07-07');
