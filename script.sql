@@ -1,3 +1,7 @@
+# DROP SCHEMA `coopetico-test`;
+# CREATE SCHEMA `coopetico-test`;
+
+
 CREATE TABLE grupo (
 	pk_id				VARCHAR(32)			PRIMARY KEY
 );
@@ -81,6 +85,13 @@ CREATE TABLE viaje (
     CONSTRAINT pk_viaje PRIMARY KEY (pk_correo_cliente,pk_placa_taxi,pk_fecha_inicio)
 );
 
+CREATE TABLE token_recuperacion_contrasena (
+	fk_correo_usuario   VARCHAR(32)			PRIMARY KEY,
+    token				VARCHAR(36),
+    fecha_expiracion    TIMESTAMP,
+    CONSTRAINT fk_token_usuario FOREIGN KEY (fk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 CREATE EVENT tr_limpiar_faltas_t
     ON SCHEDULE EVERY 24 HOUR
     DO 
@@ -96,9 +107,7 @@ BEGIN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La cantidad de estrellas no está entre 0 y 5';
   END IF;
 END; //
-DELIMITER ;
 
-DELIMITER //
 CREATE TRIGGER tr_promedio_estrellas_e 
 AFTER INSERT ON viaje
 FOR EACH ROW BEGIN
@@ -109,25 +118,14 @@ FOR EACH ROW BEGIN
 		)
 		WHERE t.pk_correo_usuario = NEW.correo_taxista;
 END; //
-DELIMITER ;
 
-CREATE TABLE token_recuperacion_contrasena (
-	fk_correo_usuario   VARCHAR(32)			PRIMARY KEY,
-    token				VARCHAR(36),
-    fecha_expiracion    TIMESTAMP,
-    CONSTRAINT fk_token_usuario FOREIGN KEY (fk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-DELIMITER //
 CREATE TRIGGER tr_sumar_tiempo_expiracion_token_before_insert_e 
 BEFORE INSERT ON token_recuperacion_contrasena
 FOR EACH ROW 
 BEGIN
 		SET new.fecha_expiracion = TIMESTAMPADD(HOUR, 12, CURRENT_TIMESTAMP);
 END; //
-DELIMITER ;
 
-DELIMITER //
 CREATE TRIGGER tr_sumar_tiempo_expiracion_token_before_update_e 
 BEFORE UPDATE ON token_recuperacion_contrasena
 FOR EACH ROW 
