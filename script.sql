@@ -1,6 +1,7 @@
-# DROP SCHEMA `coopetico-test`;
-# CREATE SCHEMA `coopetico-test`;
+#DROP SCHEMA `coopetico-dev`;
 
+CREATE SCHEMA `coopetico-dev`;
+USE `coopetico-dev`;
 
 CREATE TABLE grupo (
 	pk_id				VARCHAR(32)			PRIMARY KEY

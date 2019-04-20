@@ -1,3 +1,4 @@
+USE `coopetico-dev`;
 DELETE FROM taxista;
 DELETE FROM taxi;
 DELETE FROM cliente;
