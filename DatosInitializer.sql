@@ -27,6 +27,8 @@ INSERT INTO permiso VALUES
  (307, 'Borrar usuario cliente'),
  (308, 'Asignar rol a usuario'),
  (309, 'Ver historial de viajes de un taxista'),
+ (310, 'Consultar taxis'),
+ (311, 'Consultar taxista'),
  (400, 'Agregar administrativo'),
  (401, 'Borrar administrativo'),
  (402, 'Editar permiso'),
