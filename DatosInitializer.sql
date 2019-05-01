@@ -71,15 +71,15 @@ INSERT INTO usuario VALUES
 ('administrativo@administrativo.com', 'Administrativo', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Administrativo',TRUE),
 ('gerente@gerente.com', 'Gerente', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente',TRUE);
 
+INSERT INTO taxista VALUES
+('taxista@taxista.com', '0', 1, 1, 5, 'justificación');
+
 INSERT INTO taxi VALUES
-('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,'');
+('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,'','taxista@taxista.com');
 
 INSERT INTO cliente VALUES
 ('cliente@cliente.com'),
 ('coopeticotaxi@gmail.com');
-
-INSERT INTO taxista VALUES
-('taxista@taxista.com', '0', 1, 1, 5, 'AAA111', null,null);
 
 INSERT INTO coopetico VALUES
 ('administrativo@administrativo.com'),

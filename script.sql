@@ -47,6 +47,17 @@ CREATE TABLE cliente (
     CONSTRAINT fk_cliente_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE taxista (
+	pk_correo_usuario	VARCHAR(64)				PRIMARY KEY,
+    faltas				ENUM('1','2','3','0')	NOT NULL,
+    estado				BIT						NOT NULL,
+    hoja_delincuencia	BIT						NOT NULL,
+    estrellas			FLOAT                   NOT NULL,
+    justificacion       NVARCHAR(1024)          NULL,
+
+    CONSTRAINT fk_taxista_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE NO ACTION ON UPDATE CASCADE
+);
+
 CREATE TABLE taxi (
 	pk_placa			VARCHAR(8)				PRIMARY KEY,
     datafono			BIT						NULL,
@@ -57,22 +68,19 @@ CREATE TABLE taxi (
     fecha_ven_marchamo	TIMESTAMP				NOT NULL,
     fecha_ven_seguro	TIMESTAMP				NOT NULL,
     valido              BOOLEAN                 NOT NULL DEFAULT TRUE,
-    foto                VARCHAR(512)            NULL
+    foto                VARCHAR(512)            NULL,
+    correo_taxista      VARCHAR(64)             NOT NULL,
+
+    CONSTRAINT fk_taxi_taxista FOREIGN KEY (correo_taxista) REFERENCES taxista (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
-CREATE TABLE taxista (
-	pk_correo_usuario	VARCHAR(64)				PRIMARY KEY,
-    faltas				ENUM('1','2','3','0')	NOT NULL,
-    estado				BIT						NOT NULL,
-    hoja_delincuencia	BIT						NOT NULL,
-    estrellas			FLOAT                   NOT NULL,
-    placa_taxi_maneja	VARCHAR(8)				NOT NULL,
-    placa_taxi_dueno	VARCHAR(8)				NULL,
-    justificacion       NVARCHAR(1024)          NULL,
-    
-    CONSTRAINT fk_taxista_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE NO ACTION ON UPDATE CASCADE,
-    CONSTRAINT fk_taxista_taxi_maneja FOREIGN KEY (placa_taxi_maneja) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE,
-    CONSTRAINT fk_taxista_taxi_dueno FOREIGN KEY (placa_taxi_dueno) REFERENCES taxi (pk_placa) ON DELETE SET NULL ON UPDATE CASCADE
+CREATE TABLE conduce (
+    pk_correo_taxista   VARCHAR(64)            NOT NULL,
+    pk_placa_taxi       VARCHAR(8)             NOT NULL,
+
+    CONSTRAINT pk_conduce PRIMARY KEY (pk_correo_taxista,pk_placa_taxi),
+    CONSTRAINT fk_conduce_taxista FOREIGN KEY (pk_correo_taxista) REFERENCES taxista (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT fk_conduce_taxi FOREIGN KEY (pk_placa_taxi) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 CREATE TABLE viaje (
@@ -108,7 +116,7 @@ DELIMITER //
 CREATE TRIGGER tr_rango_estrellas_e
 BEFORE INSERT ON viaje
 FOR EACH ROW
-BEGIN 
+BEGIN
   IF (NEW.`estrellas` > 5 OR NEW.`estrellas` < 0) THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La cantidad de estrellas no está entre 0 y 5';
   END IF;
