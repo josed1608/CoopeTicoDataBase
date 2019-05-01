@@ -24,11 +24,13 @@ CREATE TABLE permisos_grupo (
 CREATE TABLE usuario (
 	pk_correo			VARCHAR(64)		PRIMARY KEY,
     nombre				NVARCHAR(32)	NOT NULL,
-    apellidos			NVARCHAR(64)	NOT NULL,
+    apellido1			NVARCHAR(32)	NOT NULL,
+    apellido2           NVARCHAR(32)    NOT NULL,
     telefono			VARCHAR(8)		NOT NULL,
     contrasena			CHAR(128)		NOT NULL,
     foto				VARCHAR(512)	NULL,
     id_grupo			VARCHAR(32)		NOT NULL,
+    valid               BOOLEAN         NOT NULL DEFAULT FALSE, #esto se usa para el borrado lógico de taxista y cliente
     
     CONSTRAINT fk_usuario_grupo FOREIGN KEY (id_grupo) REFERENCES grupo (pk_id) ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -48,12 +50,14 @@ CREATE TABLE cliente (
 CREATE TABLE taxi (
 	pk_placa			VARCHAR(8)				PRIMARY KEY,
     datafono			BIT						NULL,
-    telefono			VARCHAR(8)		NOT NULL,
+    telefono			VARCHAR(8)		        NOT NULL,
     clase				ENUM('A','B','NA')		NOT NULL,
     tipo				ENUM('microbus','wagon','normal') NOT NULL,
-    fecha_ven_taxista	TIMESTAMP				NOT NULL,
+    fecha_ven_rtv	    TIMESTAMP				NOT NULL,
     fecha_ven_marchamo	TIMESTAMP				NOT NULL,
-    fecha_ven_seguro	TIMESTAMP				NOT NULL
+    fecha_ven_seguro	TIMESTAMP				NOT NULL,
+    valido              BOOLEAN                 NOT NULL DEFAULT TRUE,
+    foto                VARCHAR(512)            NULL
 );
 
 CREATE TABLE taxista (
@@ -61,9 +65,10 @@ CREATE TABLE taxista (
     faltas				ENUM('1','2','3','0')	NOT NULL,
     estado				BIT						NOT NULL,
     hoja_delincuencia	BIT						NOT NULL,
-    estrellas			FLOAT NOT NULL,
+    estrellas			FLOAT                   NOT NULL,
     placa_taxi_maneja	VARCHAR(8)				NOT NULL,
     placa_taxi_dueno	VARCHAR(8)				NULL,
+    justificacion       NVARCHAR(1024)          NULL,
     
     CONSTRAINT fk_taxista_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT fk_taxista_taxi_maneja FOREIGN KEY (placa_taxi_maneja) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE,
