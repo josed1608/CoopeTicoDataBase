@@ -54,6 +54,7 @@ CREATE TABLE taxista (
     hoja_delincuencia	BIT						NOT NULL,
     estrellas			FLOAT                   NOT NULL,
     justificacion       NVARCHAR(1024)          NULL,
+    vence_licencia		TIMESTAMP				NOT NULL,
 
     CONSTRAINT fk_taxista_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -151,4 +152,16 @@ DELIMITER ;
 CREATE EVENT tr_limpiar_tokens_expirados_t
     ON SCHEDULE EVERY 1 MINUTE
     DO 
-      DELETE FROM token_recuperacion_contrasena WHERE TIMESTAMPDIFF(MINUTE, NOW(), fecha_expiracion) < 0
+      DELETE FROM token_recuperacion_contrasena WHERE TIMESTAMPDIFF(MINUTE, NOW(), fecha_expiracion) < 0;
+
+
+CREATE EVENT tr_desactivar_taxista_licencia_vencida
+    ON SCHEDULE EVERY 1 DAY
+    STARTS '2019-05-01 00:01:00'
+    DO
+      UPDATE taxista 
+      SET estado = FALSE
+      WHERE vence_licencia < now();
+      
+#El siguiente comando activa los eventos
+SET GLOBAL event_scheduler = ON;
