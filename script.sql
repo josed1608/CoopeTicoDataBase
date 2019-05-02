@@ -35,10 +35,10 @@ CREATE TABLE usuario (
     CONSTRAINT fk_usuario_grupo FOREIGN KEY (id_grupo) REFERENCES grupo (pk_id) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
-CREATE TABLE coopetico (
+CREATE TABLE operador (
 	pk_correo_usuario	VARCHAR(64)		PRIMARY KEY,
     
-    CONSTRAINT fk_coopetico_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT fk_operador_usuario FOREIGN KEY (pk_correo_usuario) REFERENCES usuario (pk_correo) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE cliente ( 
@@ -85,19 +85,23 @@ CREATE TABLE conduce (
 );
 
 CREATE TABLE viaje (
-    pk_placa_taxi		VARCHAR(8),
-    pk_correo_cliente	VARCHAR(64),
-    pk_fecha_inicio		TIMESTAMP			NOT NULL,
-    fecha_fin			TIMESTAMP			NOT NULL,
-    costo				VARCHAR(8)			NOT NULL,
-    estrellas			FLOAT NULL,
-    origen_destino		VARCHAR(64)			NOT NULL,
-    correo_taxista		VARCHAR(8)			NOT NULL,
+    pk_placa_taxi		        VARCHAR(8),
+    correo_cliente	            VARCHAR(64),
+    pk_fecha_inicio		        TIMESTAMP			NOT NULL,
+    fecha_fin			        TIMESTAMP			NOT NULL,
+    costo				        VARCHAR(8)			NOT NULL,
+    estrellas			        FLOAT NULL,
+    origen_destino		        VARCHAR(64)			NOT NULL,
+    correo_taxista		        VARCHAR(8)			NOT NULL,
+    agenda_telefono             VARCHAR(8)          NOT NULL,
+    agenda_nombre               VARCHAR(128)        NOT NULL,
+    fk_agenda_correo_operador   VARCHAR(654)        NOT NULL,
     
-    CONSTRAINT fk_viaje_cliente FOREIGN KEY (pk_correo_cliente) REFERENCES cliente (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT fk_viaje_cliente FOREIGN KEY (correo_cliente) REFERENCES cliente (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT fk_viaje_taxi FOREIGN KEY (pk_placa_taxi) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT fk_viaje_taxista FOREIGN KEY (correo_taxista) REFERENCES taxista (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
-    CONSTRAINT pk_viaje PRIMARY KEY (pk_correo_cliente,pk_placa_taxi,pk_fecha_inicio)
+    CONSTRAINT fk_viaje_operador FOREIGN KEY (fk_agenda_correo_operador) REFERENCES operador (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT pk_viaje PRIMARY KEY (pk_placa_taxi,pk_fecha_inicio)
 );
 
 CREATE TABLE token_recuperacion_contrasena (

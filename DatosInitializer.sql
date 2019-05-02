@@ -2,7 +2,7 @@ USE `coopetico-dev`;
 DELETE FROM taxista;
 DELETE FROM taxi;
 DELETE FROM cliente;
-DELETE FROM coopetico;
+DELETE FROM operador;
 DELETE FROM usuario;
 DELETE FROM permisos_grupo;
 DELETE FROM grupo;
@@ -88,9 +88,9 @@ INSERT INTO cliente VALUES
 ('cliente@cliente.com'),
 ('coopeticotaxi@gmail.com');
 
-INSERT INTO coopetico VALUES
+INSERT INTO operador VALUES
 ('administrativo@administrativo.com'),
 ('gerente@gerente.com');
 
-INSERT INTO token_recuperacion_contrasena VALUES ('gerente@gerente.com', 'tokenGenerado', '2019-04-04');
 INSERT INTO token_recuperacion_contrasena VALUES ('cliente@cliente.com', 'tokenGenerado2', '2019-07-07');
+INSERT INTO token_recuperacion_contrasena VALUES ('gerente@gerente.com', 'tokenGenerado', '2019-04-04');
