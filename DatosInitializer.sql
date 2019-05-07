@@ -32,9 +32,12 @@ INSERT INTO permiso VALUES
  (400, 'Agregar administrativo'),
  (401, 'Borrar administrativo'),
  (402, 'Editar permiso'),
- (403, 'Agregar grupo de permisos');
+ (403, 'Agregar grupo de permisos'),
+ (404, 'Consultar permisos'),
+ (405, 'Asignar permisos');
 
 INSERT INTO grupo VALUES
+
 ('Cliente'),
 ('Taxista'),
 ('Administrativo'),
@@ -61,7 +64,9 @@ INSERT INTO permisos_grupo VALUES
 (400, 'Gerente'),
 (401, 'Gerente'),
 (402, 'Gerente'),
-(403, 'Gerente');
+(403, 'Gerente'),
+(404, 'Gerente'),
+(405, 'Gerente');
 
 -- La contraseña es contrasenna para todos
 INSERT INTO usuario VALUES
