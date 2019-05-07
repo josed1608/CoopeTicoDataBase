@@ -61,6 +61,7 @@ INSERT INTO permisos_grupo VALUES
 (307, 'Administrativo'),
 (308, 'Administrativo'),
 (309, 'Administrativo'),
+(311, 'Administrativo'),
 (400, 'Gerente'),
 (401, 'Gerente'),
 (402, 'Gerente'),
