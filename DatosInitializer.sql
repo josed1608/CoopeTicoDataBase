@@ -75,12 +75,16 @@ INSERT INTO usuario VALUES
 ('coopeticotaxi@gmail.com', 'Cliente', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente',TRUE),
 ('taxista1@taxista.com', 'Taxista1', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
 ('taxista2@taxista.com', 'Taxista2', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('taxistaNoSuspendido@taxista.com', 'Taxista2', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('taxistaSuspendido@taxista.com', 'Taxista2', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
 ('administrativo@administrativo.com', 'Administrativo', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Administrativo',TRUE),
 ('gerente@gerente.com', 'Gerente', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente',TRUE);
 
 INSERT INTO taxista VALUES
 ('taxista1@taxista.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
-('taxista2@taxista.com', '0', 1, 1, 5, 'justificación', '2019-05-01');
+('taxista2@taxista.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
+('taxistaNoSuspendido@taxista.com', '0', 1, 1, 5, '', '2019-05-01'),
+('taxistaSuspendido@taxista.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
 
 INSERT INTO taxi VALUES
 ('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,'','taxista1@taxista.com'),
