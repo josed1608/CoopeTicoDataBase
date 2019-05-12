@@ -85,19 +85,19 @@ CREATE TABLE conduce (
 );
 
 CREATE TABLE viaje (
-    pk_placa_taxi		        VARCHAR(8),
-    fk_correo_cliente	        VARCHAR(64),
+    pk_placa_taxi		        VARCHAR(8)          NOT NULL,
     pk_fecha_inicio		        TIMESTAMP           NOT NULL,
     fecha_fin			        TIMESTAMP,
     costo				        VARCHAR(8),
-    estrellas			        FLOAT NULL,
+    estrellas			        FLOAT,
     origen	        	        VARCHAR(64)			NOT NULL,
     destino                     VARCHAR(64),
     correo_taxista		        VARCHAR(8)			NOT NULL,
     agenda_telefono             VARCHAR(8),
     agenda_nombre               VARCHAR(128),
+    fk_correo_cliente	        VARCHAR(64),
     fk_agenda_correo_operador   VARCHAR(64),
-    
+
     CONSTRAINT fk_viaje_cliente FOREIGN KEY (fk_correo_cliente) REFERENCES cliente (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT fk_viaje_taxi FOREIGN KEY (pk_placa_taxi) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT fk_viaje_taxista FOREIGN KEY (correo_taxista) REFERENCES taxista (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE,
