@@ -166,8 +166,8 @@ CREATE EVENT tr_desactivar_taxista_licencia_vencida
     STARTS '2019-05-01 00:01:00'
     DO
       UPDATE taxista 
-      SET estado = FALSE
-      WHERE vence_licencia < now();
+	  SET estado = FALSE, justificacion =  CONCAT(justificacion , ' Licencia vencida.')
+	  WHERE vence_licencia < now();
       
 #El siguiente comando activa los eventos
 SET GLOBAL event_scheduler = ON;
