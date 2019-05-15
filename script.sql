@@ -92,7 +92,7 @@ CREATE TABLE viaje (
     estrellas			        FLOAT,
     origen	        	        VARCHAR(64)			NOT NULL,
     destino                     VARCHAR(64),
-    correo_taxista		        VARCHAR(8)			NOT NULL,
+    correo_taxista		        VARCHAR(64)			NOT NULL,
     agenda_telefono             VARCHAR(8),
     agenda_nombre               VARCHAR(128),
     fk_correo_cliente	        VARCHAR(64),

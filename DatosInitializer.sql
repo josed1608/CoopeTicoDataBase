@@ -34,10 +34,10 @@ INSERT INTO permiso VALUES
  (402, 'Editar permiso'),
  (403, 'Agregar grupo de permisos'),
  (404, 'Consultar permisos'),
- (405, 'Asignar permisos');
+ (405, 'Asignar permisos'),
+ (500, 'Consultar viajes');
 
 INSERT INTO grupo VALUES
-
 ('Cliente'),
 ('Taxista'),
 ('Administrativo'),
@@ -62,23 +62,38 @@ INSERT INTO permisos_grupo VALUES
 (308, 'Administrativo'),
 (309, 'Administrativo'),
 (311, 'Administrativo'),
+(400, 'Administrativo'),
+(500, 'Administrativo'),
+(300, 'Gerente'),
+(301, 'Gerente'),
+(302, 'Gerente'),
+(303, 'Gerente'),
+(304, 'Gerente'),
+(305, 'Gerente'),
+(306, 'Gerente'),
+(307, 'Gerente'),
+(308, 'Gerente'),
+(309, 'Gerente'),
+(310, 'Gerente'),
+(311, 'Gerente'),
 (400, 'Gerente'),
 (401, 'Gerente'),
 (402, 'Gerente'),
 (403, 'Gerente'),
 (404, 'Gerente'),
-(405, 'Gerente');
+(405, 'Gerente'),
+(500, 'Gerente');
 
 -- La contraseña es contrasenna para todos
 INSERT INTO usuario VALUES
-('cliente@cliente.com', 'Cliente', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente',TRUE),
-('coopeticotaxi@gmail.com', 'Cliente', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente',TRUE),
-('taxista1@taxista.com', 'Taxista1', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
-('taxista2@taxista.com', 'Taxista2', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
-('taxistaNoSuspendido@taxista.com', 'Taxista2', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
-('taxistaSuspendido@taxista.com', 'Taxista2', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
-('administrativo@administrativo.com', 'Administrativo', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Administrativo',TRUE),
-('gerente@gerente.com', 'Gerente', 'apellido1','apellido2', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente',TRUE);
+('cliente@cliente.com', 'Cliente', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente',TRUE),
+('coopeticotaxi@gmail.com', 'Cliente', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente',TRUE),
+('taxista1@taxista.com', 'Taxista', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('taxista2@taxista.com', 'Taxista', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('taxistaNoSuspendido@taxista.com', 'Taxista', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('taxistaSuspendido@taxista.com', 'Taxista', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('administrativo@administrativo.com', 'Administrativo', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Administrativo',TRUE),
+('gerente@gerente.com', 'Gerente', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente',TRUE);
 
 INSERT INTO taxista VALUES
 ('taxista1@taxista.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
@@ -87,8 +102,8 @@ INSERT INTO taxista VALUES
 ('taxistaSuspendido@taxista.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
 
 INSERT INTO taxi VALUES
-('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,'','taxista1@taxista.com'),
-('BBB111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,'','taxista1@taxista.com');
+('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'taxista1@taxista.com'),
+('BBB111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'taxista1@taxista.com');
 
 Insert INTO conduce VALUES
 ('taxista1@taxista.com', 'AAA111'),
@@ -102,5 +117,9 @@ INSERT INTO operador VALUES
 ('administrativo@administrativo.com'),
 ('gerente@gerente.com');
 
+INSERT INTO viaje VALUES
+('AAA111', now(), now(), '5000', 0, '', '', 'taxista1@taxista.com', '', '', 'cliente@cliente.com', 'administrativo@administrativo.com'),
+('BBB111', now(), now(), '5000', 0, '', '', 'taxista1@taxista.com', '', '', 'cliente@cliente.com', 'administrativo@administrativo.com');
+        
 INSERT INTO token_recuperacion_contrasena VALUES ('cliente@cliente.com', 'tokenGenerado2', '2019-07-07');
 INSERT INTO token_recuperacion_contrasena VALUES ('gerente@gerente.com', 'tokenGenerado', '2019-04-04');
