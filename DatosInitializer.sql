@@ -118,8 +118,7 @@ INSERT INTO operador VALUES
 ('gerente@gerente.com');
 
 INSERT INTO viaje VALUES
-('AAA111', now(), now(), '5000', 0, '', '', 'taxista1@taxista.com', '', '', 'cliente@cliente.com', 'administrativo@administrativo.com'),
-('BBB111', now(), now(), '5000', 0, '', '', 'taxista1@taxista.com', '', '', 'cliente@cliente.com', 'administrativo@administrativo.com');
+('AAA111', '2019-05-29 15:48:00', '2019-05-29 16:26:00', '5000', 0, '', '', 'taxista1@taxista.com', '', '', 'cliente@cliente.com', 'administrativo@administrativo.com');
         
 INSERT INTO token_recuperacion_contrasena VALUES ('cliente@cliente.com', 'tokenGenerado2', '2019-07-07');
 INSERT INTO token_recuperacion_contrasena VALUES ('gerente@gerente.com', 'tokenGenerado', '2019-04-04');
