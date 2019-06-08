@@ -71,6 +71,8 @@ CREATE TABLE taxi (
     valido              BOOLEAN                 NOT NULL DEFAULT TRUE,
     foto                VARCHAR(512)            NULL,
     correo_taxista      VARCHAR(64)             NOT NULL,
+    estado				BIT						NOT NULL,
+    justificacion       NVARCHAR(1024)          NULL,
 
     CONSTRAINT fk_taxi_taxista FOREIGN KEY (correo_taxista) REFERENCES taxista (pk_correo_usuario) ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -167,7 +169,31 @@ CREATE EVENT tr_desactivar_taxista_licencia_vencida
     DO
       UPDATE taxista 
 	  SET estado = FALSE, justificacion =  CONCAT(justificacion , ' Licencia vencida.')
-	  WHERE vence_licencia < now();
+	  WHERE vence_licencia < now() AND estado = TRUE;
+
+CREATE EVENT tr_desactivar_taxi_fecha_rtv_vencida
+    ON SCHEDULE EVERY 1 DAY
+    STARTS '2019-05-01 00:01:00'
+    DO
+      UPDATE taxi 
+      SET estado = FALSE, justificacion =  CONCAT(justificacion , ' RTV vencido.')
+      WHERE fecha_ven_rtv < now() AND estado = TRUE;
+
+CREATE EVENT tr_desactivar_taxi_fecha_marchamo_vencida
+    ON SCHEDULE EVERY 1 DAY
+    STARTS '2019-05-01 00:01:00'
+    DO
+      UPDATE taxi 
+      SET estado = FALSE, justificacion =  CONCAT(justificacion , ' Marchamo vencido.')
+      WHERE fecha_ven_marchamo < now() AND estado = TRUE;
+
+CREATE EVENT tr_desactivar_taxi_fecha_seguro_vencida
+    ON SCHEDULE EVERY 1 DAY
+    STARTS '2019-05-01 00:01:00'
+    DO
+    UPDATE taxi 
+	SET estado = FALSE, justificacion =  CONCAT(justificacion , ' Seguro vencido.')
+    WHERE fecha_ven_seguro < now() AND estado = TRUE;
       
 #El siguiente comando activa los eventos
 SET GLOBAL event_scheduler = ON;

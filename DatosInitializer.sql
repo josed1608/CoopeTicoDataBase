@@ -102,8 +102,11 @@ INSERT INTO taxista VALUES
 ('taxistaSuspendido@taxista.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
 
 INSERT INTO taxi VALUES
-('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'taxista1@taxista.com'),
-('BBB111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'taxista1@taxista.com');
+('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'taxista1@taxista.com',TRUE,'justificación'),
+('BBB111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'taxista1@taxista.com',TRUE,'justificación'),
+('CCC111', 1, '11111111', 'A', 'normal', '2019-05-01', '2020-05-01', '2020-05-01',TRUE,NULL,'taxista1@taxista.com',TRUE,''),
+('DDD111', 1, '11111111', 'A', 'normal', '2020-05-01', '2019-05-01', '2020-05-01',TRUE,NULL,'taxista1@taxista.com',TRUE,''),
+('EEE111', 1, '11111111', 'A', 'normal', '2020-05-01', '2020-05-01', '2019-05-01',TRUE,NULL,'taxista1@taxista.com',TRUE,'');
 
 Insert INTO conduce VALUES
 ('taxista1@taxista.com', 'AAA111'),
