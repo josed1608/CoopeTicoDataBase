@@ -1,4 +1,4 @@
-DROP SCHEMA `coopetico-dev`;
+#DROP SCHEMA `coopetico-dev`;
 
 CREATE SCHEMA `coopetico-dev`;
 USE `coopetico-dev`;
