@@ -1,4 +1,4 @@
-#DROP SCHEMA `coopetico-dev`;
+DROP SCHEMA `coopetico-dev`;
 
 CREATE SCHEMA `coopetico-dev`;
 USE `coopetico-dev`;
@@ -194,6 +194,3 @@ CREATE EVENT tr_desactivar_taxi_fecha_seguro_vencida
     UPDATE taxi 
 	SET estado = FALSE, justificacion =  CONCAT(justificacion , ' Seguro vencido.')
     WHERE fecha_ven_seguro < now() AND estado = TRUE;
-      
-#El siguiente comando activa los eventos
-SET GLOBAL event_scheduler = ON;
