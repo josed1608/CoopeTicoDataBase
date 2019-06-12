@@ -1,13 +1,14 @@
 #USE `coopetico-dev`;
-DELETE FROM taxista;
+DELETE FROM conduce;
+DELETE FROM viaje;
 DELETE FROM taxi;
+DELETE FROM taxista;
 DELETE FROM cliente;
 DELETE FROM operador;
 DELETE FROM usuario;
 DELETE FROM permisos_grupo;
 DELETE FROM grupo;
 DELETE FROM permiso;
-DELETE FROM viaje;
 DELETE FROM token_recuperacion_contrasena;
 
 INSERT INTO permiso VALUES
