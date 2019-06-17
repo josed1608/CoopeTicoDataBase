@@ -1,2 +1,3 @@
 SET GLOBAL EVENT_SCHEDULER = ON;
-SET GLOBAL TIME_ZONE = '+0:00';
+SET @@global.time_zone = '+0:00';
+SET @@session.time_zone = '+0:00';
