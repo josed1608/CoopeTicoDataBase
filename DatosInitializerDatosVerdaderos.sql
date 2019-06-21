@@ -102,13 +102,27 @@ INSERT INTO taxista VALUES
 ('danielOduber@gmail.com', '0', 1, 1, 5, '', '2019-05-01'),
 ('federicoCastro@gmail.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
 
+INSERT INTO taxista VALUES
+('kevinJimMej@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
+('carlaMerZar@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
+('danielOduber@gmail.com', '0', 1, 1, 5, '', '2019-05-01'),
+('federicoCastro@gmail.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
+
 INSERT INTO taxi VALUES
 ('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'kevinJimMej@gmail.com'),
 ('BBB111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'carlaMerZar@gmail.com');
 
+INSERT INTO taxi VALUES
+('1', 1, '84303254', 'A', 'normal', now(), now(), now(),TRUE,NULL,'kevinJimMej@gmail.com',TRUE,'justificación'),
+('420', 1, '87342434', 'A', 'normal', now(), now(), now(),TRUE,NULL,'carlaMerZar@gmail.com',TRUE,'justificación'),
+('1000', 1, '88907843', 'A', 'normal', '2019-05-01', '2020-05-01', '2020-05-01',TRUE,NULL,'kevinJimMej@gmail.com',TRUE,''),
+('122', 1, '67329384', 'A', 'normal', '2020-05-01', '2019-05-01', '2020-05-01',TRUE,NULL,'kevinJimMej@gmail.com',TRUE,''),
+('432', 1, '32014354', 'A', 'normal', '2020-05-01', '2020-05-01', '2019-05-01',TRUE,NULL,'kevinJimMej@gmail.com',TRUE,'');
+
+
 Insert INTO conduce VALUES
-('kevinJimMej@gmail.com', 'AAA111'),
-('carlaMerZar@gmail.com', 'AAA111');
+('kevinJimMej@gmail.com', '420'),
+('carlaMerZar@gmail.com', '1');
 
 INSERT INTO cliente VALUES
 ('carlos.vargas12312@gmail.com'),
@@ -119,8 +133,7 @@ INSERT INTO operador VALUES
 ('mariaSancho@gmail.com');
 
 INSERT INTO viaje VALUES
-('AAA111', now(), now(), '5000', 0, '', '', 'kevinJimMej@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejando1605@gmail.com'),
-('BBB111', now(), now(), '5000', 0, '', '', 'carlaMerZar@gmail.com', '', '', 'juanmanuel1233@gmail.com', 'alejando1605@gmail.com');
-        
+('1', '2019-05-29 15:48:00', '2019-05-29 16:26:00', '5000', 0, '', '', 'danielOduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejando1605@gmail.com');        
+
 INSERT INTO token_recuperacion_contrasena VALUES ('carlos.vargas12312@gmail.com', 'tokenGenerado2', '2019-07-07');
 INSERT INTO token_recuperacion_contrasena VALUES ('mariaSancho@gmail.com', 'tokenGenerado', '2019-04-04');
