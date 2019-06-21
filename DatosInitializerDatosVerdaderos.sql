@@ -99,7 +99,7 @@ INSERT INTO usuario VALUES
 INSERT INTO taxista VALUES
 ('kevinJimMej@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
 ('carlaMerZar@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
-('danielOduber@gmail.com', '0', 1, 1, 5, '', '2019-05-01'),
+('danielOduber@gmail.com', '0', 1, 1, 5, 'prueba', '2019-05-01'),
 ('federicoCastro@gmail.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
 
 INSERT INTO taxi VALUES
