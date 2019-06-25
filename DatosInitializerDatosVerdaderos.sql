@@ -90,21 +90,21 @@ INSERT INTO usuario VALUES
 ('carlos.vargas12312@gmail.com', 'Carlos', 'Vargas','Artavia', '89904578', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente',TRUE),
 ('juanmanuel1233@gmail.com', 'Manuel', 'Sanchez','Perez', '89082334', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Cliente',TRUE),
 ('kevinjimmej@gmail.com', 'Kevin', 'Jimenez','Mejia', '73456327', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
-('carlaMerZar@gmail.com', 'Carla', 'Merina','Zaravia', '62028743', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
-('danielOduber@gmail.com', 'Daniel', 'Uber','Carillo', '84831321', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
-('federicoCastro@gmail.com', 'Federico', 'Castro','Madriz', '64009097', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('carlamerzar@gmail.com', 'Carla', 'Merina','Zaravia', '62028743', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('danieloduber@gmail.com', 'Daniel', 'Uber','Carillo', '84831321', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
+('federicocastro@gmail.com', 'Federico', 'Castro','Madriz', '64009097', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Taxista',TRUE),
 ('alejando1605@gmail.com', 'Alejandor', 'Fernandez','Gaga', '87343212', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Administrativo',TRUE),
-('mariaSancho@gmail.com', 'Maria', 'Sanchez','Pereira', '87879034', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente',TRUE);
+('mariasancho@gmail.com', 'Maria', 'Sanchez','Pereira', '87879034', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente',TRUE);
 
 INSERT INTO taxista VALUES
 ('kevinjimmej@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
-('carlaMerZar@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
-('danielOduber@gmail.com', '0', 1, 1, 5, 'prueba', '2019-05-01'),
-('federicoCastro@gmail.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
+('carlamerzar@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
+('danieloduber@gmail.com', '0', 1, 1, 5, 'prueba', '2019-05-01'),
+('federicocastro@gmail.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
 
 INSERT INTO taxi VALUES
 ('1', 1, '84303254', 'A', 'normal', now(), now(), now(),TRUE,NULL,'kevinjimmej@gmail.com',TRUE,'justificación'),
-('420', 1, '87342434', 'A', 'normal', now(), now(), now(),TRUE,NULL,'carlaMerZar@gmail.com',TRUE,'justificación'),
+('420', 1, '87342434', 'A', 'normal', now(), now(), now(),TRUE,NULL,'carlamerzar@gmail.com',TRUE,'justificación'),
 ('1000', 1, '88907843', 'A', 'normal', '2019-05-01', '2020-05-01', '2020-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,''),
 ('122', 1, '67329384', 'A', 'normal', '2020-05-01', '2019-05-01', '2020-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,''),
 ('432', 1, '32014354', 'A', 'normal', '2020-05-01', '2020-05-01', '2019-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,'');
@@ -112,7 +112,7 @@ INSERT INTO taxi VALUES
 
 Insert INTO conduce VALUES
 ('kevinjimmej@gmail.com', '420'),
-('carlaMerZar@gmail.com', '1');
+('carlamerzar@gmail.com', '1');
 
 INSERT INTO cliente VALUES
 ('carlos.vargas12312@gmail.com'),
@@ -120,10 +120,10 @@ INSERT INTO cliente VALUES
 
 INSERT INTO operador VALUES
 ('alejando1605@gmail.com'),
-('mariaSancho@gmail.com');
+('mariasancho@gmail.com');
 
 INSERT INTO viaje VALUES
-('1', '2019-05-29 15:48:00', '2019-05-29 16:26:00', '5000', 0, '', '', 'danielOduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejando1605@gmail.com');        
+('1', '2019-05-29 15:48:00', '2019-05-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejando1605@gmail.com');        
 
 INSERT INTO token_recuperacion_contrasena VALUES ('carlos.vargas12312@gmail.com', 'tokenGenerado2', '2019-07-07');
-INSERT INTO token_recuperacion_contrasena VALUES ('mariaSancho@gmail.com', 'tokenGenerado', '2019-04-04');
+INSERT INTO token_recuperacion_contrasena VALUES ('mariasancho@gmail.com', 'tokenGenerado', '2019-04-04');
