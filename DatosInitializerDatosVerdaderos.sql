@@ -17,7 +17,7 @@ INSERT INTO permiso VALUES
  (102, 'Editar perfil'),
  (103, 'Calificar viaje'),
  (104, 'Ingresar monto'),
- (200, 'Tomar vijae'),
+ (200, 'Tomar viaje'),
  (300, 'Agregar taxi'),
  (301, 'Agregar taxista'),
  (302, 'Borrar taxi'),
