@@ -97,10 +97,10 @@ INSERT INTO usuario VALUES
 ('gerente@gerente.com', 'Gerente', 'apellido','apellido', '11111111', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente',TRUE);
 
 INSERT INTO taxista VALUES
-('taxista1@taxista.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
-('taxista2@taxista.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
-('taxistaNoSuspendido@taxista.com', '0', 1, 1, 5, '', '2019-05-01'),
-('taxistaSuspendido@taxista.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
+('taxista1@taxista.com', '0', 1, 1, 5, 'justificación', '2019-05-01', null),
+('taxista2@taxista.com', '0', 1, 1, 5, 'justificación', '2019-05-01', null),
+('taxistaNoSuspendido@taxista.com', '0', 1, 1, 5, '', '2019-05-01', null),
+('taxistaSuspendido@taxista.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01', null);
 
 INSERT INTO taxi VALUES
 ('AAA111', 1, '11111111', 'A', 'normal', now(), now(), now(),TRUE,NULL,'taxista1@taxista.com',TRUE,'justificación'),
