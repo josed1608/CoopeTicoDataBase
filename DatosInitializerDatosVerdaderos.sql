@@ -97,10 +97,10 @@ INSERT INTO usuario VALUES
 ('mariasancho@gmail.com', 'Maria', 'Sanchez','Pereira', '87879034', '$2a$10$gJ0hUnsEvTp5zyBVo19IHe.GoYKkL3Wy268wGJxG5.k.tUFhSUify', 'foto', 'Gerente',TRUE);
 
 INSERT INTO taxista VALUES
-('kevinjimmej@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
-('carlamerzar@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01'),
-('danieloduber@gmail.com', '0', 1, 1, 5, 'prueba', '2019-05-01'),
-('federicocastro@gmail.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01');
+('kevinjimmej@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01', null),
+('carlamerzar@gmail.com', '0', 1, 1, 5, 'justificación', '2019-05-01', null),
+('danieloduber@gmail.com', '0', 1, 1, 5, 'prueba', '2019-05-01', null),
+('federicocastro@gmail.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01', null);
 
 INSERT INTO taxi VALUES
 ('1', 1, '84303254', 'A', 'normal', now(), now(), now(),TRUE,NULL,'kevinjimmej@gmail.com',TRUE,'justificación'),
