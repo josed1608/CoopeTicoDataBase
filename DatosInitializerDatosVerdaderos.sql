@@ -36,7 +36,8 @@ INSERT INTO permiso VALUES
  (403, 'Agregar grupo de permisos'),
  (404, 'Consultar permisos'),
  (405, 'Asignar permisos'),
- (500, 'Consultar viajes');
+ (500, 'Consultar viajes'),
+ (600, 'Pedir viajeoperadora');
 
 INSERT INTO grupo VALUES
 ('Cliente'),
@@ -73,9 +74,6 @@ INSERT INTO permisos_grupo VALUES
 (311, 'Administrativo'),
 (400, 'Administrativo'),
 (401, 'Administrativo'),
-(403, 'Administrativo'),
-(404, 'Administrativo'),
-(405, 'Administrativo'),
 (500, 'Administrativo'),
 (100, 'Gerente'),
 (101, 'Gerente'),
@@ -103,7 +101,10 @@ INSERT INTO permisos_grupo VALUES
 (405, 'Gerente'),
 (500, 'Gerente'),
 (100, 'Operador'),
-(101, 'Operador');
+(101, 'Operador'),
+(200, 'Operador'),
+(600, 'Operador'),
+(500, 'Operador');
 
 -- La contraseña es contrasenna para todos
 INSERT INTO usuario VALUES
@@ -146,12 +147,12 @@ INSERT INTO operador VALUES
 
 INSERT INTO viaje VALUES
 ('1', '2019-07-29 15:48:00', '2019-07-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('2', '2019-08-29 15:48:00', '2019-08-29 16:26:00', '5000', 0, '', '', 'kevinjimmej@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('3', '2019-08-29 15:48:00', '2019-08-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('4', '2019-09-29 15:48:00', '2019-09-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('5', '2019-09-29 15:48:00', '2019-09-29 16:26:00', '5000', 0, '', '', 'carlamerzar@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('6', '2019-010-29 15:48:00', '2019-010-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('7', '2019-011-29 15:48:00', '2019-011-29 16:26:00', '5000', 0, '', '', 'federicocastro@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com');        
+('420', '2019-08-29 15:48:00', '2019-08-29 16:26:00', '5000', 0, '', '', 'kevinjimmej@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('1000', '2019-08-29 15:48:00', '2019-08-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('122', '2019-09-29 15:48:00', '2019-09-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('432', '2019-09-29 15:48:00', '2019-09-29 16:26:00', '5000', 0, '', '', 'carlamerzar@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('1', '2019-010-29 15:48:00', '2019-010-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('420', '2019-011-29 15:48:00', '2019-011-29 16:26:00', '5000', 0, '', '', 'federicocastro@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com');        
 
 INSERT INTO token_recuperacion_contrasena VALUES ('carlos.vargas12312@gmail.com', 'tokenGenerado2', '2019-07-07');
 INSERT INTO token_recuperacion_contrasena VALUES ('mariasancho@gmail.com', 'tokenGenerado', '2019-04-04');
