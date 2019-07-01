@@ -1,8 +1,8 @@
 /*DROP SCHEMA `coopetico-dev`;
 
 CREATE SCHEMA `coopetico-dev`;
-USE `coopetico-dev`;
-*/
+USE `coopetico-dev`;*/
+
 CREATE TABLE grupo (
 	pk_id				VARCHAR(32)			PRIMARY KEY
 );
@@ -79,7 +79,7 @@ CREATE TABLE taxi (
 );
 
 ALTER TABLE taxista
-ADD CONSTRAINT fk_taxi_actual FOREIGN KEY (taxi_actual) REFERENCES taxi (pk_placa) ON DELETE NO ACTION ON UPDATE CASCADE;
+ADD CONSTRAINT fk_taxi_actual FOREIGN KEY (taxi_actual) REFERENCES taxi (pk_placa) ON DELETE SET NULL ON UPDATE CASCADE;
 
 
 CREATE TABLE conduce (
