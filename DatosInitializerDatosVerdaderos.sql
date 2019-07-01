@@ -127,11 +127,11 @@ INSERT INTO taxista VALUES
 ('federicocastro@gmail.com', '0', 0, 1, 5, 'Cobro de más a un cliente', '2019-05-01', null);
 
 INSERT INTO taxi VALUES
-('1', 1, '84303254', 'A', 'normal', now(), now(), now(),TRUE,NULL,'kevinjimmej@gmail.com',TRUE,'justificación'),
-('420', 1, '87342434', 'A', 'normal', now(), now(), now(),TRUE,NULL,'carlamerzar@gmail.com',TRUE,'justificación'),
-('1000', 1, '88907843', 'A', 'normal', '2019-05-01', '2020-05-01', '2020-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,''),
-('122', 1, '67329384', 'A', 'normal', '2020-05-01', '2019-05-01', '2020-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,''),
-('432', 1, '32014354', 'A', 'normal', '2020-05-01', '2020-05-01', '2019-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,'');
+('123654', 1, '84303254', 'A', 'normal', now(), now(), now(),TRUE,NULL,'kevinjimmej@gmail.com',TRUE,'justificación'),
+('420323', 1, '87342434', 'A', 'normal', now(), now(), now(),TRUE,NULL,'carlamerzar@gmail.com',TRUE,'justificación'),
+('1000342', 1, '88907843', 'A', 'normal', '2019-05-01', '2020-05-01', '2020-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,''),
+('122783', 1, '67329384', 'A', 'normal', '2020-05-01', '2019-05-01', '2020-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,''),
+('432682', 1, '32014354', 'A', 'normal', '2020-05-01', '2020-05-01', '2019-05-01',TRUE,NULL,'kevinjimmej@gmail.com',TRUE,'');
 
 
 Insert INTO conduce VALUES
