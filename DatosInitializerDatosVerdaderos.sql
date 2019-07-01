@@ -1,4 +1,4 @@
-USE `coopetico-dev`;
+USE `coopetico-prod`;
 SET SQL_MODE='ALLOW_INVALID_DATES';
 DELETE FROM taxista;
 DELETE FROM taxi;
@@ -135,8 +135,8 @@ INSERT INTO taxi VALUES
 
 
 Insert INTO conduce VALUES
-('kevinjimmej@gmail.com', '420'),
-('carlamerzar@gmail.com', '1');
+('kevinjimmej@gmail.com', '420323'),
+('carlamerzar@gmail.com', '123654');
 
 INSERT INTO cliente VALUES
 ('carlos.vargas12312@gmail.com'),
@@ -148,13 +148,13 @@ INSERT INTO operador VALUES
 ('mariasancho@gmail.com');
 
 INSERT INTO viaje VALUES
-('1', '2019-07-29 15:48:00', '2019-07-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('420', '2019-08-29 15:48:00', '2019-08-29 16:26:00', '5000', 0, '', '', 'kevinjimmej@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('1000', '2019-08-29 15:48:00', '2019-08-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('122', '2019-09-29 15:48:00', '2019-09-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('432', '2019-09-29 15:48:00', '2019-09-29 16:26:00', '5000', 0, '', '', 'carlamerzar@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('1', '2019-010-29 15:48:00', '2019-010-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
-('420', '2019-011-29 15:48:00', '2019-011-29 16:26:00', '5000', 0, '', '', 'federicocastro@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com');        
+('123654', '2019-07-29 15:48:00', '2019-07-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('420323', '2019-08-29 15:48:00', '2019-08-29 16:26:00', '5000', 0, '', '', 'kevinjimmej@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('1000342', '2019-08-29 15:48:00', '2019-08-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('122783', '2019-09-29 15:48:00', '2019-09-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('432682', '2019-09-29 15:48:00', '2019-09-29 16:26:00', '5000', 0, '', '', 'carlamerzar@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('123654', '2019-010-29 15:48:00', '2019-010-29 16:26:00', '5000', 0, '', '', 'danieloduber@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com'),
+('420323', '2019-011-29 15:48:00', '2019-011-29 16:26:00', '5000', 0, '', '', 'federicocastro@gmail.com', '', '', 'carlos.vargas12312@gmail.com', 'alejandro1605@gmail.com');        
 
 INSERT INTO token_recuperacion_contrasena VALUES ('carlos.vargas12312@gmail.com', 'tokenGenerado2', '2019-07-07');
 INSERT INTO token_recuperacion_contrasena VALUES ('mariasancho@gmail.com', 'tokenGenerado', '2019-04-04');
